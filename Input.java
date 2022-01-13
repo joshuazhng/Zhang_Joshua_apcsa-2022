@@ -1,10 +1,10 @@
 //(c) A+ Computer Science
 //www.apluscompsci.com
 
-//Name -
-//Date -
-//Class -
-//Lab  -
+//Name - Joshua Zhang
+//Date - 1/13/22
+//Class - AP CSA Mauro Period 1
+//Lab  - Input
 
 import static java.lang.System.*;
 import java.util.Scanner;
