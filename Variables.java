@@ -2,7 +2,7 @@
 //www.apluscompsci.com
 
 //Name - Joshua Zhang
-//Date - 11/13/21
+//Date - 1/13/22
 //Class -AP CSA Mauro Period 1
 //Lab  - Variables
 
@@ -35,7 +35,7 @@ public class Variables
 
 		//output your information here
 		System.out.println("/////////////////////////////////");
-		System.out.println("*Joshua Zhang             1/13/21");
+		System.out.println("*Joshua Zhang            1/13/22*");
 		System.out.println("*                               *");
 		System.out.println("*        integer types          *");
 		System.out.println("*                               *");
@@ -49,7 +49,7 @@ public class Variables
 		System.out.println("*32 bit - floatOne = "+floatOne+"\t*");
 		System.out.println("*64 bit - doubleOne = "+doubleOne+"\t*");
 		System.out.println("*                               *");
-		System.out.println("*       other integer types     *");
+		System.out.println("*      other integer types      *");
 		System.out.println("*                               *");
 		System.out.println("*16 bit - charOne = "+charOne+"\t\t*");
 		System.out.println("*                               *");
