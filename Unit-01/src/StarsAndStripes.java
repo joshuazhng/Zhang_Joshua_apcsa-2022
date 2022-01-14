@@ -1,10 +1,11 @@
 //© A+ Computer Science
+
 //www.apluscompsci.com
 
-//Name -
-//Date -
-//Class -
-//Lab  -
+//Name - Joshua Zhang
+//Date - 1/14/22
+//Class - AP CSA Mauro Period 1
+//Lab  - Stars and Stripes
 
 import static java.lang.System.*;
 
