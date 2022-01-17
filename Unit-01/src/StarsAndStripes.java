@@ -1,4 +1,4 @@
-//© A+ Computer Science
+//ï¿½ A+ Computer Science
 
 //www.apluscompsci.com
 
@@ -19,21 +19,38 @@ public class StarsAndStripes
 
    public void printTwentyStars()
    {
+	   for (int i=0; i<20; i++) {
+		   out.print("*");
+	   }
+	   out.println();
    }
 
    public void printTwentyDashes()
    {
+	   for (int i=0; i<20; i++) {
+		   out.print("-");
+	   }
+	   out.println();
    }
 
    public void printTwoBlankLines()
    {
+	   out.println();
+	   out.println();
    }
    
    public void printASmallBox()
    {	
+	   for (int i=0; i<3; i++) {
+		   printTwentyDashes();
+		   printTwentyStars();
+	   }
+	   printTwentyDashes();
    }
  
    public void printABigBox()
    { 	
+	   printASmallBox();
+	   printASmallBox();
    }   
 }
