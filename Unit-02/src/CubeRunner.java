@@ -1,7 +1,7 @@
 //(c) A+ Computer Science
 //www.apluscompsci.com
-//Name -
-//Date -
+//Name - Joshua Zhang
+//Date - 1/18/22
 
 public class CubeRunner
 {
@@ -14,7 +14,6 @@ public class CubeRunner
 		System.out.println( "Cube area is :: " + Cube.area( 5 ) );		
 		System.out.println( "Cube area is :: " + Cube.area( 19 ) );
 		System.out.println( "Cube area is :: " + Cube.area( 111 ) );
-
 	}
 }
 

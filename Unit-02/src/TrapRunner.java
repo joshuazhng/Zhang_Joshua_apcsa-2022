@@ -1,8 +1,8 @@
-//© A+ Computer Science  -  www.apluscompsci.com
-//Name -
-//Date -
-//Class -
-//Lab  - 
+//ï¿½ A+ Computer Science  -  www.apluscompsci.com
+//Name - Joshua Zhang
+//Date - 1/18/22
+//Class - AP CSA Mauro Period 1
+//Lab  - Trap
 
 public class TrapRunner
 {
@@ -16,7 +16,6 @@ public class TrapRunner
 		System.out.println( Trap.area( 11, 8, 5) );
 	}
 }
-
 
 /*
 EXPECTED OUTPUT
