@@ -12,10 +12,16 @@ public class NumberVerify
 {
 	public static boolean isOdd( int num )
 	{
+		if (num % 2 != 0) {
 		return true;
+		}
+		else return false;
 	}
 	public static boolean isEven( int num )
 	{
-		return true;
+		if (num % 2 == 0) {
+			return true;
+		}
+		else return false;
 	}	
 }
