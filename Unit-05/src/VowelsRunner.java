@@ -1,7 +1,7 @@
 //(c) A+ Computer Science
 //www.apluscompsci.com
-//Name -
-//Date -
+//Name - Joshua Zhang
+//Date - 1/24/22
 
 public class VowelsRunner
 {

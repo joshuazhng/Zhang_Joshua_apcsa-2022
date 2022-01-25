@@ -1,12 +1,12 @@
 //(c) A+ Computer Science
 //www.apluscompsci.com
-//Name -
-//Date -
+//Name - Joshua Zhang
+//Date - 1/24/22
 
 public class AvgLen
 {
    public static double go( String a, String b )
 	{
-		return 0;
+		return (double)(a.length()+b.length())/2;
 	}
 }
