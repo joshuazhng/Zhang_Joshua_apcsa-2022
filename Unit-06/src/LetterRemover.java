@@ -12,7 +12,7 @@ public class LetterRemover
 	public LetterRemover()
 	{
 		//call set
-		setRemover("", 'a');
+		setRemover("", ' ');
 	}
 
 	//add in second constructor
