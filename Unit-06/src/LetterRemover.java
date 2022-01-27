@@ -30,11 +30,11 @@ public class LetterRemover
 	public String removeLetters()
 	{
 		String look = String.valueOf(lookFor);
-		String cleaned = sentence.replaceAll(look, "");
-		/*int loc = sentence.indexOf(lookFor);
-		while (loc != -1) {
-			cleaned = 
-		}*/
+		String cleaned = "";
+		for (int i = 0; i < sentence.length(); i++) {
+			if (sentence.charAt(i) != lookFor)
+				cleaned += sentence.charAt(i);
+		}
 		return cleaned;
 	}
 

@@ -29,20 +29,40 @@ public class RockPaperScissors
 	{
 		String winner="";
 		int comp = (int)Math.random()*3;
-		if (comp == 0) {
-			compChoice = "R";
-		}
-		if (comp == 1) {
-			compChoice = "P";
-		}
-		if (comp == 2) {
-			compChoice = "S";
+		switch (comp) {
+			case 0: compChoice = "R";
+					break;
+			case 1: compChoice = "P";
+					break;
+			case 2: compChoice = "S";
+					break;
 		}
 		
 		if (playChoice == "R") {
-			if (compChoice == "P") {
+			if (compChoice == "P")
 				winner += "Computer";
-			}
+			if (compChoice == "S")
+				winner += "Player wins <<Rock Breaks Scissors>>";
+			else
+				winner += "Draw Game!";
+		}
+		
+		if (playChoice == "P") {
+			if (compChoice == "S")
+				winner += "Computer";
+			if (compChoice == "R")
+				winner += "Player wins <<Paper Covers Rock>>";
+			else
+				winner += "Draw Game!";
+		}
+		
+		if (playChoice == "S") {
+			if (compChoice == "R")
+				winner += "Computer wins <<Rock Breaks Scissors>>";
+			if (compChoice == "P")
+				winner += "Player wins";
+			else
+				winner += "Draw Game!";
 		}
 		
 		return winner;
@@ -50,7 +70,9 @@ public class RockPaperScissors
 
 	public String toString()
 	{
+		
 		String output="player had " + playChoice + "\n" + "computer had " + compChoice;
+		output = output + "\n!" + determineWinner() + "!\n";
 		return output;
 	}
 }
