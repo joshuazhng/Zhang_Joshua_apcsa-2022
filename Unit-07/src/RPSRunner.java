@@ -16,16 +16,19 @@ public class RPSRunner
 		
 		//add in a do while loop after you get the basics up and running
 	 {
-			String player = "";
-		
-			out.print("Rock-Paper-Scissors - pick your weapon[R,P,S] :: ");
+			do {
+				String player = "";
+				
+				out.print("Rock-Paper-Scissors - pick your weapon[R,P,S] :: ");
 
-			//read in the player value
-			play.setPlayers(keyboard.next());
-			out.println(play);
-			out.println("!" + play.determineWinner() + " wins");
-			
-		}
+				//read in the player value
+				play.setPlayers(keyboard.next());
+				out.println(play);
+				
+				out.print("Do you want to play again? ");
+				response = keyboard.next().charAt(0);
+				} while (response == 'y' || response == 'Y');
+	}
 	}
 }
 
