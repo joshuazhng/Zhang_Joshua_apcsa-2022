@@ -12,14 +12,15 @@ public class RPSRunner
 		Scanner keyboard = new Scanner(System.in);
 		char response;
 		RockPaperScissors play = new RockPaperScissors();
-		
+		boolean firstRun = true;
 		
 		//add in a do while loop after you get the basics up and running
 	 {
 			do {
-				String player = "";
-				
-				out.print("\nRock-Paper-Scissors - pick your weapon[R,P,S] :: ");
+				if (firstRun != true) {
+					out.print("\n");
+				}
+				out.print("Rock-Paper-Scissors - pick your weapon[R,P,S] :: ");
 
 				//read in the player value
 				play.setPlayers(keyboard.next());
@@ -27,6 +28,7 @@ public class RPSRunner
 				
 				out.print("Do you want to play again? ");
 				response = keyboard.next().charAt(0);
+				firstRun = false;
 				} while (response == 'y' || response == 'Y');
 	}
 	}
