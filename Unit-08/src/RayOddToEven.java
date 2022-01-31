@@ -9,17 +9,17 @@ public class RayOddToEven
 	
 	public RayOddToEven()
 	{
-		setRay([]);
+		setRay(new int[]{0, 0});
 	}
 	
-	public RayOddToEven(int[] ray)
+	public RayOddToEven(int[] inputRay)
 	{
-		setRay(ray);
+		setRay(inputRay);
 	}
 	
-	public void setRay(int[] ray)
+	public void setRay(int[] inputRay)
 	{
-		ray = ray;
+		ray = inputRay;
 	}
 	
 	public static boolean go(int[] ray)
