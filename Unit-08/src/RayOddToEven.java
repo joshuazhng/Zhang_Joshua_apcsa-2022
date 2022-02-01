@@ -22,14 +22,23 @@ public class RayOddToEven
 		ray = inputRay;
 	}
 	
-	public static boolean go(int[] ray)
-	{
-		return false;
-	}
-	
 	public int go(int[] ray)
 	{
-		boolean x = false;
-		
+		int oddIndex;
+		int evenIndex;
+		for (int i = 0; i < ray.length; i++)
+		{
+			if (ray[i] % 2 != 0) {
+				oddIndex = i;
+				for (int odd = i; odd < ray.length; odd++)
+				{
+					if (ray[odd] % 2 == 0) {
+						evenIndex = odd;
+						return evenIndex-oddIndex;
+					}
+				}
+			}
+		}
+		return -1;
 	}
 }
