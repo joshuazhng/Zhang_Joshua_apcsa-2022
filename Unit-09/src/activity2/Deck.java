@@ -1,3 +1,4 @@
+package activity2;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -11,7 +12,8 @@ public class Deck {
 	/**
 	 * cards contains all the cards in the deck.
 	 */
-	private List<Card> cards;
+	//private List<Card> cards;
+	private Card[] cards;
 
 	/**
 	 * size is the number of not-yet-dealt cards.
