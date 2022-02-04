@@ -25,18 +25,18 @@ public class Card {
    /**
 	 * Creates a new <code>Card</code> instance.
 	 *
-	 * @param cardRank  a <code>String</code> value
+	 * @param ranks  a <code>String</code> value
 	 *                  containing the rank of the card
-	 * @param cardSuit  a <code>String</code> value
+	 * @param suits  a <code>String</code> value
 	 *                  containing the suit of the card
-	 * @param cardPointValue an <code>int</code> value
+	 * @param values an <code>int</code> value
 	 *                  containing the point value of the card
 	 */
-	public Card(String cardRank, String cardSuit, int cardPointValue) {
+	public Card(String ranks, String suits, int values) {
 		//initializes a new Card with the given rank, suit, and point value
-		rank = cardRank;
-		suit = cardSuit;
-		pointValue = cardPointValue;
+		rank = ranks;
+		suit = suits;
+		pointValue = values;
 	}
 
 
