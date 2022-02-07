@@ -17,9 +17,8 @@ public class DeckTester {
 		
 		System.out.println("Deck Methods Testing");
 		System.out.println(" toString: \n" + d.toString());
-		System.out.println(" isEmpty: \n" + d.toString());
 		System.out.println(" size: " + d.size());
 		System.out.println(" deal: " + d.deal());
-		System.out.println(" size: " + d.size());
+		System.out.println(" toString: \n" + d.toString());
 	}
 }

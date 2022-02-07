@@ -109,7 +109,7 @@ public class Deck {
 		}
 
 		rtn = rtn + "\nDealt cards: \n";
-		for (int k = size - 1; k >= size; k--) {
+		for (int k = cards.length - 1; k >= size; k--) {
 			rtn = rtn + cards[k];
 			if (k != size) {
 				rtn = rtn + ", ";
