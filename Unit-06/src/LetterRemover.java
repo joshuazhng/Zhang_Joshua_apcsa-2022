@@ -29,7 +29,6 @@ public class LetterRemover
 
 	public String removeLetters()
 	{
-		String look = String.valueOf(lookFor);
 		String cleaned = "";
 		for (int i = 0; i < sentence.length(); i++) {
 			if (sentence.charAt(i) != lookFor)
