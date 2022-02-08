@@ -46,7 +46,7 @@ public class Deck {
 		}
 		size = cards.length;
 		System.out.println(Arrays.toString(cards));
-		
+		shuffle();
 	}
 
 
@@ -74,6 +74,15 @@ public class Deck {
 	 */
 	public void shuffle() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 4 *** */
+		for (int i = cards.length - 1; i > 0; i--) {
+			int howMany = i + 1;
+			int start = 0;
+			int rand = (int)(Math.random()*howMany) + start;
+			Card temp = cards[i];
+			cards[i] = cards[rand];
+			cards[rand] = temp;
+		}
+		size = cards.length;
 	}
 
 	/**

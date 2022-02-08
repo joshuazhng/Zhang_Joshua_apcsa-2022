@@ -16,9 +16,10 @@ public class DeckTester {
 		Deck d = new Deck(myRanks, mySuits, myValues);
 		
 		System.out.println("Deck Methods Testing");
-		System.out.println(" toString: \n" + d.toString());
 		System.out.println(" size: " + d.size());
 		System.out.println(" deal: " + d.deal());
 		System.out.println(" toString: \n" + d.toString());
+		d.shuffle();
+		System.out.println("Shuffled Deck:\n toString: \n" + d.toString());
 	}
 }
