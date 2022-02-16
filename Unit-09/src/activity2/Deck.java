@@ -16,8 +16,8 @@ public class Deck {
 	/**
 	 * cards contains all the cards in the deck.
 	 */
-	//private List<Card> cards;
-	private Card[] cards;
+	private List<Card> cards; //ArrayList implementation
+	//private Card[] cards;
 
 	/**
 	 * size is the number of not-yet-dealt cards.
@@ -37,7 +37,17 @@ public class Deck {
 	 */
 	public Deck(String[] ranks, String[] suits, int[] values) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
-		cards = new Card[ranks.length*suits.length];
+		cards = new ArrayList<Card>();
+		for (int i = 0; i < ranks.length; i++) { //loop through ranks
+			for (int j = 0; j < suits.length; j++) { //loop through suits
+				Card newCard = new Card(ranks[i], suits[j], values[j]);
+				cards.add(newCard);
+			}
+		}
+		size = cards.size();
+		shuffle();
+		
+		/*cards = new Card[ranks.length*suits.length];
 		for (int i = 0; i < ranks.length; i++) { //loop through ranks
 			for (int j = 0; j < suits.length; j++) { //loop through suits
 				int cardIndex = (suits.length)*i + j;
@@ -46,7 +56,7 @@ public class Deck {
 		}
 		size = cards.length;
 		System.out.println(Arrays.toString(cards));
-		shuffle();
+		shuffle();*/
 	}
 
 
@@ -74,7 +84,16 @@ public class Deck {
 	 */
 	public void shuffle() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 4 *** */
-		for (int i = cards.length - 1; i > 0; i--) {
+		for (int i = cards.size() - 1; i > 0; i--) {
+			int howMany = i + 1;
+			int start = 0;
+			int randPos = (int)(Math.random() * howMany) + start;
+			Card temp = cards.get(i);
+			cards.set(i, cards.get(randPos));
+			cards.set(randPos, temp);
+		}
+		
+		/*for (int i = cards.length - 1; i > 0; i--) {
 			int howMany = i + 1;
 			int start = 0;
 			int rand = (int)(Math.random()*howMany) + start;
@@ -82,7 +101,7 @@ public class Deck {
 			cards[i] = cards[rand];
 			cards[rand] = temp;
 		}
-		size = cards.length;
+		size = cards.length;*/
 	}
 
 	/**
