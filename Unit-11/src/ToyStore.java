@@ -14,15 +14,22 @@ public class ToyStore
 
 	public ToyStore()
 	{
+		toyList = new ArrayList<Toy>();
 	}
 
 	public void loadToys( String toys )
 	{
+		Toy input = new Toy(toys);
+		toyList.add(input);
 	}
   
   	public Toy getThatToy( String nm )
   	{
-  		return null;
+  		for (int i = 0; i < toyList.size(); i++) {
+  			if (toyList.getName(i).equals(nm)) {
+  				return toyList.getName(i);
+  			}
+  		}
   	}
   
   	public String getMostFrequentToy()
@@ -32,6 +39,7 @@ public class ToyStore
   
   	public void sortToysByCount()
   	{
+  		
   	}  
   	  
 	public String toString()

@@ -13,7 +13,7 @@ public class TriangleWordRunner
 		String choice = "";
 		
 		do{
-			System.out.println("Enter a word :: ");
+			System.out.print("Enter a word :: ");
 			String word = keyboard.next();
 	
  			TriangleWord.printTriangle(word);
