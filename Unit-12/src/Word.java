@@ -27,6 +27,6 @@ public class Word implements Comparable<Word>
 
 	public String toString()
 	{
-		return "";
+		return word;
 	}
 }
