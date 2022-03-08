@@ -92,6 +92,7 @@ public class Deck {
 			cards.set(i, cards.get(randPos));
 			cards.set(randPos, temp);
 		}
+		size = cards.size();
 		
 		/*for (int i = cards.length - 1; i > 0; i--) {
 			int howMany = i + 1;
