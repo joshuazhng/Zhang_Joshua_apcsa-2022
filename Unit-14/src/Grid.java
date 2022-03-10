@@ -12,7 +12,7 @@ public class Grid
 		grid = new String[rows][cols];
 		for (int i = 0; i < grid.length; i++) {
 			for (int j = 0; j < grid[i].length; j++) {
-				int v = (int)Math.random()*vals.length;
+				int v = (int)(Math.random()*vals.length);
 				String val = vals[v];
 				grid[i][j] = val;
 			}
