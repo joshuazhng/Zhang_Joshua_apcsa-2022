@@ -40,7 +40,7 @@ public class Deck {
 		cards = new ArrayList<Card>();
 		for (int i = 0; i < ranks.length; i++) { //loop through ranks
 			for (int j = 0; j < suits.length; j++) { //loop through suits
-				Card newCard = new Card(ranks[i], suits[j], values[j]);
+				Card newCard = new Card(ranks[i], suits[j], values[i]);
 				cards.add(newCard);
 			}
 		}
