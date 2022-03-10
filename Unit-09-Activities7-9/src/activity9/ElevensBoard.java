@@ -75,7 +75,6 @@ public class ElevensBoard extends Board {
 	public boolean anotherPlayIsPossible() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
 		List<Integer> Indexes = cardIndexes();
-		System.out.println(Indexes);
 		return (containsPairSum11(Indexes) || containsJQK(Indexes));
 	}
 
@@ -91,9 +90,6 @@ public class ElevensBoard extends Board {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
 		for (int i = 0; i < selectedCards.size() - 1; i++) {
 			for (int j = i + 1; j < selectedCards.size(); j++) {
-				System.out.println(cardAt(selectedCards.get(i).intValue()).rank() + " " + cardAt(selectedCards.get(i).intValue()).pointValue() + " " + 
-			cardAt(selectedCards.get(j).intValue()).rank() + " " + cardAt(selectedCards.get(j).intValue()).pointValue());
-				
 				if (cardAt(selectedCards.get(i).intValue()).pointValue() + cardAt(selectedCards.get(j).intValue()).pointValue() == 11) {
 					return true;
 				}
