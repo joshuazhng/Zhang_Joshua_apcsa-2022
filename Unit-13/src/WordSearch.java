@@ -23,7 +23,12 @@ public class WordSearch
     public boolean isFound( String word )
     {
     	boolean found = false;
-    	
+    	for (int r = 0; r < m.length; r++) {
+    		for (int c = 0; c < m[r].length; c++) {
+    			if (m[r][c] == word)
+    				found = true;
+    		}
+    	}
     	return found;
     }
 
@@ -34,7 +39,7 @@ public class WordSearch
 		{
 			if (c+i < 0 || c+i >= w.length())
 				return false;
-			if (!w.substring(i, i+1).equals(m[r][c+i]))
+			if (!w.substring(i, i+1).equals(m[r][c+i])) //might be c+i
 				return false;
 		}
 		return true;
@@ -42,41 +47,97 @@ public class WordSearch
 
 	public boolean checkLeft(String w, int r, int c)
 	{
-		return false;
+		int i = 0;
+		while (i < w.length())
+		{
+			if (c-i < 0 || c-i >= w.length())
+				return false;
+			if (!w.substring(i, i+1).equals(m[r][c-i]))
+				return false;
+		}
+		return true;
 	}
 
 	public boolean checkUp(String w, int r, int c)
 	{
-		return false;
+		int i = 0;
+		while (i < w.length())
+		{
+			if (r-i < 0 || r-i >= w.length())
+				return false;
+			if (!w.substring(i, i+1).equals(m[r+1][c]))
+				return false;
+		}
+		return true;
 	}
 
 	public boolean checkDown(String w, int r, int c)
    {
-	   return false;
+		int i = 0;
+		while (i < w.length())
+		{
+			if (c-i < 0 || c+i >= w.length())
+				return false;
+			if (!w.substring(i, i+1).equals(m[r-1][c]))
+				return false;
+		}
+		return true;
 	}
 
 	public boolean checkDiagUpRight(String w, int r, int c)
 	{
-		return false;
+		int i = 0;
+		while (i < w.length())
+		{
+			if (r+i < 0 || r+i >= c)
+				return false;
+			if (!w.substring(i, i+1).equals(m[r-1][c+1]))
+				return false;
+		}
+		return true;
 	}
 
 	public boolean checkDiagUpLeft(String w, int r, int c)
 	{
-		return false;
+		int i = 0;
+		while (i < w.length())
+		{
+			if (r+i < 0 || r+i >= c)
+				return false;
+			if (!w.substring(i, i+1).equals(m[r-1][c-1]))
+				return false;
+		}
+		return true;
 	}
 
 	public boolean checkDiagDownLeft(String w, int r, int c)
    {
-		return false;
+		int i = 0;
+		while (i < w.length())
+		{
+			if(c-i < 0 || c+i >= c && c-i <0 || c-i >= c)
+				return false;
+			if (!w.substring(i, i+1).equals(m[r+1][c-1]))
+				return false;
+		}
+		return true;
 	}
 
 	public boolean checkDiagDownRight(String w, int r, int c)
 	{
-		return false;
+		int i = 0;
+		while (i < w.length())
+		{
+			if(c+i < 0 || c+i >= c && c+i <0 || c-i >= c)
+				return false;
+			if (!w.substring(i, i+1).equals(m[r+1][c+1]))
+				return false;
+		}
+		return true;
 	}
 
     public String toString()
     {
- 		return "";
+ 		return "checked";
     }
 }
