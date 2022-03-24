@@ -14,7 +14,7 @@ public class WordSearchRunner
     	  System.out.println( ms );
     	  for( String s : words )
     	  {
-    	  	  if( ms.isFound( s) )
+    	  	  if( ms.isFound(s) )
     	  	  {
     	  	  	  System.out.println( s + " was found in the matrix.");
     	  	  }

@@ -22,122 +22,157 @@ public class WordSearch
 
     public boolean isFound( String word )
     {
-    	boolean found = false;
     	for (int r = 0; r < m.length; r++) {
     		for (int c = 0; c < m[r].length; c++) {
-    			if (m[r][c] == word)
-    				found = true;
+    			if (checkRight(word, r, c) || checkLeft(word, r, c) || checkUp(word, r, c)  || checkDown(word, r, c)  || checkDiagUpRight(word, r, c)  || checkLeft(word, r, c)  || checkDiagDownLeft(word, r, c)  || checkDiagDownRight(word, r, c)) {
+    				return true;
+    			}
     		}
     	}
-    	return found;
+    	return false;
     }
 
-	public boolean checkRight(String w, int r, int c)
-   {
-		int i = 0;
-		while (i < w.length())
-		{
-			if (c+i < 0 || c+i >= w.length())
+    public boolean checkRight(String w, int r, int c)
+    {
+		int index = 0;
+		if (m[r].length <= c + w.length()) {
+			return false;
+		}
+		for (int i = c; i < c + w.length(); i++) {
+			if (!m[r][i].equals(w.charAt(index) + "")) {
 				return false;
-			if (!w.substring(i, i+1).equals(m[r][c+i])) //might be c+i
-				return false;
+			}
+			index++;
 		}
 		return true;
 	}
 
 	public boolean checkLeft(String w, int r, int c)
 	{
-		int i = 0;
-		while (i < w.length())
-		{
-			if (c-i < 0 || c-i >= w.length())
+		int index = 0;
+		if (c - w.length() < 0) {
+			return false;
+		}
+		for (int i = c; i > c - w.length(); i--) {
+			if (!m[r][i].equals(w.charAt(index) + "")) {
 				return false;
-			if (!w.substring(i, i+1).equals(m[r][c-i]))
-				return false;
+			}
+			index++;
 		}
 		return true;
 	}
 
 	public boolean checkUp(String w, int r, int c)
 	{
-		int i = 0;
-		while (i < w.length())
-		{
-			if (r-i < 0 || r-i >= w.length())
+		int index = 0;
+		if (r - w.length() < 0) {
+			return false;
+		}
+		for (int i = r; i > r - w.length(); i--) {
+			if (!m[i][c].equals(w.charAt(index) + "")) {
 				return false;
-			if (!w.substring(i, i+1).equals(m[r+1][c]))
-				return false;
+			}
+			index++;
 		}
 		return true;
 	}
 
 	public boolean checkDown(String w, int r, int c)
    {
-		int i = 0;
-		while (i < w.length())
-		{
-			if (c-i < 0 || c+i >= w.length())
+		int index = 0;
+		if (m.length <= r + w.length()) {
+			return false;
+		}
+		for (int i = r; i < r + w.length(); i++) {
+			if (!m[i][c].equals(w.charAt(index) + "")) {
 				return false;
-			if (!w.substring(i, i+1).equals(m[r-1][c]))
-				return false;
+			}
+			index++;
 		}
 		return true;
 	}
 
 	public boolean checkDiagUpRight(String w, int r, int c)
 	{
-		int i = 0;
-		while (i < w.length())
-		{
-			if (r+i < 0 || r+i >= c)
+		int index = 0;
+		int j = r;
+		
+		if (m[r].length <= c + w.length() || r - w.length() < 0) {
+			return false;
+		}
+		for (int i = c; i < c + w.length(); i++) {
+			if (!m[j][i].equals(w.charAt(index) + "")) {
 				return false;
-			if (!w.substring(i, i+1).equals(m[r-1][c+1]))
-				return false;
+			}
+			j--;
+			index++;
 		}
 		return true;
 	}
 
 	public boolean checkDiagUpLeft(String w, int r, int c)
 	{
-		int i = 0;
-		while (i < w.length())
-		{
-			if (r+i < 0 || r+i >= c)
+		int index = 0;
+		int j = r;
+		
+		if (c - w.length() < 0 || r - w.length() < 0) {
+			return false;
+		}
+		for (int i = c; i > c - w.length(); i--) {
+			if (!m[j][i].equals(w.charAt(index) + "")) {
 				return false;
-			if (!w.substring(i, i+1).equals(m[r-1][c-1]))
-				return false;
+			}
+			j--;
+			index++;
 		}
 		return true;
 	}
 
 	public boolean checkDiagDownLeft(String w, int r, int c)
    {
-		int i = 0;
-		while (i < w.length())
-		{
-			if(c-i < 0 || c+i >= c && c-i <0 || c-i >= c)
+		int index = 0;
+		int j = r;
+		
+		if (c - w.length() < 0 || m.length <= r + w.length()) {
+			return false;
+		}
+		for (int i = c; i > c - w.length(); i--) {
+			if (!m[j][i].equals(w.charAt(index) + "")) {
 				return false;
-			if (!w.substring(i, i+1).equals(m[r+1][c-1]))
-				return false;
+			}
+			j++;
+			index++;
 		}
 		return true;
 	}
 
 	public boolean checkDiagDownRight(String w, int r, int c)
 	{
-		int i = 0;
-		while (i < w.length())
-		{
-			if(c+i < 0 || c+i >= c && c+i <0 || c-i >= c)
+		int index = 0;
+		int j = r;
+		
+		if (m[r].length <= c + w.length() || r - w.length() < 0) {
+			return false;
+		}
+		for (int i = c; i < c + w.length(); i++) {
+			if (!m[j][i].equals(w.charAt(index) + "")) {
 				return false;
-			if (!w.substring(i, i+1).equals(m[r+1][c+1]))
-				return false;
+			}
+			j++;
+			index++;
 		}
 		return true;
 	}
 
     public String toString()
     {
- 		return "checked";
+    	String matrix = "";
+    	for (int r = 0; r < m.length; r++) {
+    		for (int c = 0; c < m[r].length; c++) {
+    			matrix += m[r][c] + " ";
+    		}
+    		matrix += "\n";
+    	}
+ 		return matrix;
     }
 }
