@@ -20,12 +20,21 @@ public class Pong extends Canvas implements KeyListener, Runnable
 	private Paddle rightPaddle;
 	private boolean[] keys;
 	private BufferedImage back;
+	private int leftScore;
+	private int rightScore;
+	
+	public 
 
 
 	public Pong()
 	{
 		//set up all variables related to the game
-
+		ball = new Ball(10, 100, 10, 10, Color.blue, 2, 1);
+		leftPaddle = new Paddle(20, 200, 10, 40, Color.orange, 2);
+		rightPaddle = new Paddle(760, 200, 10, 40, Color.orange, 2);
+		keys = new boolean[4];
+		leftScore = 0;
+		rightScore = 0;
 
 
 
