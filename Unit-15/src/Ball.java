@@ -70,11 +70,11 @@ public class Ball extends Block
    	//draw a white ball at old ball location
 	   draw(window, Color.white);
 	   
-
       setX(getX()+xSpeed);
 		//setY
-
+      setY(getY()+ySpeed);
 		//draw the ball at its new location
+      draw(window);
    }
    
 	public boolean equals(Object obj)
