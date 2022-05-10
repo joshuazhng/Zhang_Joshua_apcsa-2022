@@ -19,6 +19,15 @@ public class PictureTester
     beach.explore();
   }
   
+  /** Method to test keepOnlyBlue */
+  public static void testKeepOnlyBlue()
+  {
+    Picture beach = new Picture("/Users/emmacao/Desktop/APCSA-2022/Cao_Emma_apcsa-2022/Unit16/src/images/beach.jpg");
+    beach.explore();
+    beach.keepOnlyBlue();
+    beach.explore();
+  }
+  
   /** Method to test mirrorVertical */
   public static void testMirrorVertical()
   {
@@ -40,7 +49,7 @@ public class PictureTester
   /** Method to test the collage method */
   public static void testCollage()
   {
-    Picture canvas = new Picture("640x480.jpg");
+    Picture canvas = new Picture("/Users/joshua/Desktop/APCSA-2022/Zhang_Joshua_apcsa-2022/Unit16/src/images/640x480.jpg");
     canvas.createCollage();
     canvas.explore();
   }
@@ -60,7 +69,7 @@ public class PictureTester
     // uncomment a call here to run a test
     // and comment out the ones you don't want
     // to run
-    testZeroBlue();
+    //testZeroBlue();
     //testKeepOnlyBlue();
     //testKeepOnlyRed();
     //testKeepOnlyGreen();
