@@ -174,7 +174,7 @@ import java.util.List; // resolves problem with java.awt.List and java.util.List
 		divide by 3). Create a class (static) method to test this new method in the class
 		PictureTester. Be sure to call the new test method in the main method in
 		PictureTester.
-		6. Challenge — Explore the “water.jpg” picture in the images folder. Write a method
+		6. Challenge ï¿½ Explore the ï¿½water.jpgï¿½ picture in the images folder. Write a method
 		fixUnderwater() to modify the pixel colors to make the fish easier to see. Create a class
 		(static) method to test this new method in the class PictureTester. Be sure to call the new
 		test method in the main method in PictureTester.
@@ -496,18 +496,99 @@ import java.util.List; // resolves problem with java.awt.List and java.util.List
 		  }
 	  }
 	  
+	  //DELETE IF NOT USED
+	  public void setRedToHalfvalueInTopHalf()
+	  {
+		Pixel[][] pixels = this.getPixels2D();  
+		for(int i = 0; i <= pixels.length/2; i++) {
+			for (int j = 0; j < pixels[i].length; j++) {
+				pixels[i][j].setRed(pixels[i][j].getRed()/2);
+			}
+		}
+	  }
 	  
+	  public void clearBlueOverValue(int threshold)
+	  {
+		Pixel[][] pixels = this.getPixels2D();  
+		for(int i = 0; i < pixels.length; i++) {
+			for (int j = 0; j < pixels[i].length; j++) {
+				if (pixels[i][j].getBlue() > threshold) {
+					pixels[i][j].setBlue(0);
+				}
+			}
+		}
+	  }
 	  
+	  public int getCountRedOverValue(int redValue)
+	  {
+		Pixel[][] pixels = this.getPixels2D(); 
+		int count = 0;
+		for(int i = 0; i < pixels.length; i++) {
+			for (int j = 0; j < pixels[i].length; j++) {
+				if (pixels[i][j].getRed() > redValue) {
+					count++;
+				}
+			}
+		}
+		return count;
+	  }
+	  
+	  public void blur(int x, int y, int w, int h)
+	  {
+	 	  Pixel[][] pixels = this.getPixels2D();
+	 	  Pixel leftPixel = null;
+	      Pixel rightPixel = null;
+	      Pixel topPixel = null;
+	      Pixel bottomPixel = null;
+	      Pixel topLeft = null;
+	      Pixel topRight = null;
+	      Pixel bottomLeft = null;
+	      Pixel bottomRight = null;
+	      w = this.getWidth();
+	      h = this.getHeight();
+	      
+	      Pixel myPixel = null;
+
+	      for (int row = 0; row < h; row++)
+	      {
+	          for (int col = 0; col < w; col++)
+	          {
+	           	 leftPixel = pixels[h][w-1];      
+	  	         rightPixel = pixels[h][w+1];
+	  	         topPixel = pixels[h+1][w];
+	             bottomPixel = pixels[h-1][w];
+	             topLeft = pixels[h+1][w-1];
+	             topRight = pixels[h+1][w+1];
+	             bottomLeft = pixels[h-1][w-1];
+	             bottomRight = pixels[h-1][w+1];
+	             myPixel = pixels[h][w];
+	         	 int average = (leftPixel.getGreen() + leftPixel.getBlue() + leftPixel.getRed() +
+	         			 rightPixel.getGreen() + rightPixel.getBlue() + rightPixel.getRed() +
+	         			 topPixel.getGreen() + topPixel.getBlue() + topPixel.getRed() +
+	         			 bottomPixel.getGreen() + bottomPixel.getBlue() + bottomPixel.getRed() +
+	         			 topLeft.getGreen() + topLeft.getBlue() + topLeft.getRed() +
+	         			 topRight.getGreen() + topRight.getBlue() + topRight.getRed() +
+	         			 bottomLeft.getGreen() + bottomLeft.getBlue() + bottomLeft.getRed() +
+	         			 bottomRight.getGreen() + bottomRight.getBlue() + bottomRight.getRed() +
+	         			 myPixel.getGreen() + myPixel.getBlue() + myPixel.getRed()
+	         			 / 27);	 
+	             
+	              myPixel.setRed(average);
+	              myPixel.setBlue(average);
+	              myPixel.setGreen(average);
+	          }
+	      } 
+	  }
 	  
 	  /* Main method for testing - each class in Java can have a main 
 	   * method 
 	   */
 	  public static void main(String[] args) 
 	  {
-//	    Picture beach = new Picture("beach.jpg");
-//	    beach.explore();
-//	    beach.zeroBlue();
-//	    beach.explore();
+	    Picture beach = new Picture("/Users/joshua/Desktop/Joshua_CSA/Zhang_Joshua_apcsa-2022/Unit-16/src/images/beach.jpg");
+	    beach.explore();
+	    beach.zeroBlue();
+	    beach.explore();
 	  }
 	  
   
