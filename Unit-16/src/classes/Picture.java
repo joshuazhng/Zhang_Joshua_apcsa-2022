@@ -88,6 +88,130 @@ import java.util.List; // resolves problem with java.awt.List and java.util.List
 	    
 	  }
 	  
+	  /** Hide a black and white message in the current
+	  * picture by changing the red to even and then
+	  * setting it to odd if the message pixel is black
+	  * @param messagePict the picture with a message
+	  */
+	  public void encode(Picture messagePict)
+	  {
+		  Pixel[][] messagePixels = messagePict.getPixels2D();
+		  Pixel[][] currPixels = this.getPixels2D();
+		  Pixel currPixel = null;
+		  Pixel messagePixel = null;
+		  for (int row = 0; row < this.getHeight(); row++)
+		  {
+			  for (int col = 0; col < this.getWidth(); col++)
+			  {
+				  // if the current pixel red is odd make it even
+				  currPixel = currPixels[row][col];
+				  messagePixel = messagePixels[row][col];
+				  int redSum = 0;
+				  int redPixel = currPixel.getRed();
+				  int greenSum = 0;
+				  int greenPixel = currPixel.getGreen();
+				  int blueSum = 0;
+				  int bluePixel = currPixel.getBlue();
+				  
+				  while(redPixel > 0)
+				  {
+					  redSum += redPixel % 10; 
+					  redPixel = redPixel / 10;
+				  }
+				  if (redSum % 2 == 1)
+				  {
+					  currPixel.setRed(currPixel.getRed() - 1);
+					  if (messagePixel.colorDistance(Color.BLACK) < 50) 
+					  {
+						  currPixel.setRed(currPixel.getRed() + 1);
+					  }
+				  }
+				  
+				  /*while(greenPixel > 0)
+				  {
+					  greenSum += greenPixel % 10; 
+					  greenPixel = greenPixel / 10;
+				  }
+				  if (greenSum % 2 == 1)
+				  {
+					  currPixel.setGreen(currPixel.getGreen() - 1);
+					  if (messagePixel.colorDistance(Color.BLACK) < 100) 
+					  {
+						  currPixel.setGreen(currPixel.getGreen() + 1);
+					  }
+				  }
+				  
+				  while(bluePixel > 0)
+				  {
+					  blueSum += bluePixel % 10; 
+					  bluePixel = bluePixel / 10;
+				  }
+				  if (blueSum % 2 == 1)
+				  {
+					  currPixel.setBlue(currPixel.getBlue() - 1);
+					  if (messagePixel.colorDistance(Color.BLACK) < 100) 
+					  {
+						  currPixel.setBlue(currPixel.getBlue() + 1);
+					  }
+				  }*/
+			  }
+		  }
+	  }
+	  
+	  /**
+	  * Method to decode a message hidden in the
+	  * red value of the current picture
+	  * @return the picture with the hidden message
+	  */
+	  public Picture decode()
+	  {
+		  Pixel[][] pixels = this.getPixels2D();
+		  int height = this.getHeight();
+		  int width = this.getWidth();
+		  Pixel currPixel = null;
+
+		  Pixel messagePixel = null;
+		  Picture messagePicture = new Picture(height,width);
+		  Pixel[][] messagePixels = messagePicture.getPixels2D();
+		  for (int row = 0; row < this.getHeight(); row++)
+		  {
+			  for (int col = 0; col < this.getWidth(); col++)
+			  {
+				  currPixel = pixels[row][col];
+				  messagePixel = messagePixels[row][col];
+				  int redSum = 0;
+				  int redPixel = currPixel.getRed();
+				  int greenSum = 0;
+				  int greenPixel = currPixel.getGreen();
+				  int blueSum = 0;
+				  int bluePixel = currPixel.getBlue();
+				  
+				  while(redPixel > 0)
+				  {
+					  redSum += redPixel % 10; 
+					  redPixel = redPixel / 10;
+				  }
+				  /*while(greenPixel > 0)
+				  {
+					  greenSum += greenPixel % 10; 
+					  greenPixel = greenPixel / 10;
+				  }
+				  while(bluePixel > 0)
+				  {
+					  blueSum += bluePixel % 10; 
+					  bluePixel = bluePixel / 10;
+				  }*/
+				  
+				  if ((redSum % 2 == 1))
+				  {
+					  messagePixel.setColor(Color.BLACK);
+				  }
+				  
+			  }
+		  }
+		  return messagePicture;
+	  }
+	  
 	  /** Method to set the blue to 0 */
 	  public void zeroBlue()
 	  {

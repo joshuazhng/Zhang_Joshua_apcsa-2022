@@ -183,6 +183,17 @@ public class PictureTester
     water.explore();
   }
   
+  public static void testEncode()
+  {
+	Picture beach = new Picture("C:\\Users\\zhangj1616\\Desktop\\APCSA_2022\\Zhang_Joshua_apcsa-2022\\Unit-16\\src\\images\\beach.jpg");
+	Picture msg = new Picture("C:\\Users\\zhangj1616\\Desktop\\APCSA_2022\\Zhang_Joshua_apcsa-2022\\Unit-16\\src\\images\\msg.jpg");
+	beach.explore();
+	beach.encode(msg);
+	beach.explore();
+	Picture decoded = beach.decode();
+    decoded.explore();
+  }
+  
   /** Main method for testing.  Every class can have a main
     * method in Java */
   public static void main(String[] args)
@@ -190,6 +201,7 @@ public class PictureTester
     // uncomment a call here to run a test
     // and comment out the ones you don't want
     // to run
+	testEncode();
     //testZeroBlue();
     //testKeepOnlyBlue();
     //testKeepOnlyRed();
