@@ -106,54 +106,29 @@ import java.util.List; // resolves problem with java.awt.List and java.util.List
 				  // if the current pixel red is odd make it even
 				  currPixel = currPixels[row][col];
 				  messagePixel = messagePixels[row][col];
-				  int redSum = 0;
-				  int redPixel = currPixel.getRed();
-				  int greenSum = 0;
-				  int greenPixel = currPixel.getGreen();
-				  int blueSum = 0;
-				  int bluePixel = currPixel.getBlue();
 				  
-				  while(redPixel > 0)
-				  {
-					  redSum += redPixel % 10; 
-					  redPixel = redPixel / 10;
+				  if (messagePixel.getRed() < 200) {
+						  if (currPixel.getRed() % 2 == 1) {
+							  currPixel.setRed(currPixel.getRed() + 1);
+						  }
+						  if (currPixel.getGreen() % 2 == 1) {
+							  currPixel.setGreen(currPixel.getGreen() + 1);
+						  }
+						  if (currPixel.getBlue() % 2 == 1) {
+							  currPixel.setBlue(currPixel.getBlue() + 1);
+						  }
 				  }
-				  if (redSum % 2 == 1)
-				  {
-					  currPixel.setRed(currPixel.getRed() - 1);
-					  if (messagePixel.colorDistance(Color.BLACK) < 50) 
-					  {
+				  else {
+					  if (currPixel.getRed() % 2 == 0) {
 						  currPixel.setRed(currPixel.getRed() + 1);
 					  }
-				  }
-				  
-				  /*while(greenPixel > 0)
-				  {
-					  greenSum += greenPixel % 10; 
-					  greenPixel = greenPixel / 10;
-				  }
-				  if (greenSum % 2 == 1)
-				  {
-					  currPixel.setGreen(currPixel.getGreen() - 1);
-					  if (messagePixel.colorDistance(Color.BLACK) < 100) 
-					  {
+					  if (currPixel.getGreen() % 2 == 0) {
 						  currPixel.setGreen(currPixel.getGreen() + 1);
 					  }
-				  }
-				  
-				  while(bluePixel > 0)
-				  {
-					  blueSum += bluePixel % 10; 
-					  bluePixel = bluePixel / 10;
-				  }
-				  if (blueSum % 2 == 1)
-				  {
-					  currPixel.setBlue(currPixel.getBlue() - 1);
-					  if (messagePixel.colorDistance(Color.BLACK) < 100) 
-					  {
+					  if (currPixel.getBlue() % 2 == 0) {
 						  currPixel.setBlue(currPixel.getBlue() + 1);
 					  }
-				  }*/
+				  }
 			  }
 		  }
 	  }
@@ -179,30 +154,8 @@ import java.util.List; // resolves problem with java.awt.List and java.util.List
 			  {
 				  currPixel = pixels[row][col];
 				  messagePixel = messagePixels[row][col];
-				  int redSum = 0;
-				  int redPixel = currPixel.getRed();
-				  int greenSum = 0;
-				  int greenPixel = currPixel.getGreen();
-				  int blueSum = 0;
-				  int bluePixel = currPixel.getBlue();
 				  
-				  while(redPixel > 0)
-				  {
-					  redSum += redPixel % 10; 
-					  redPixel = redPixel / 10;
-				  }
-				  /*while(greenPixel > 0)
-				  {
-					  greenSum += greenPixel % 10; 
-					  greenPixel = greenPixel / 10;
-				  }
-				  while(bluePixel > 0)
-				  {
-					  blueSum += bluePixel % 10; 
-					  bluePixel = bluePixel / 10;
-				  }*/
-				  
-				  if ((redSum % 2 == 1))
+				  if ((currPixel.getRed() % 2 == 0 && currPixel.getGreen() % 2 == 0 && currPixel.getBlue() % 2 == 0))
 				  {
 					  messagePixel.setColor(Color.BLACK);
 				  }
